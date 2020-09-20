@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, user-scalable=no">
+    <!-- For changing Address bar color For Chrome, firefox, opera & os -->
+    <meta name="theme-color" content="#4294d2">
+    <!-- For changing Address bar color For Windows Phone  -->
+    <meta name="msapplication-navbutton-color" content="#4294d2">
+    <!-- For changing Address bar color For Safari/IOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="icon" href="favicon.ico" type="image/gif" sizes="16x16">
+    <title>My ChattApp-JS</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://www.gstatic.com/firebasejs/7.20.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.20.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.20.0/firebase-database.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+
+<body onload="loading()">
+    <div id="loading">
+        <img src="loading.gif" alt="">
+    </div>
+    <!-- Login / Signup form section -->
+    <div id="login_div" class="first-step">
+        <p id="userErrors"></p>
+        <div id="login_form" class="login_form">
+            <h2>Login into your account</h2>
+            <input class="spc" type="email" placeholder="Email..." id="login_email" />
+            <input class="spc" type="password" placeholder="Password..." id="login_password" />
+            <button class="spc" onclick="login()">Login to Account <i class="fa fa-sign-in" aria-hidden="true"></i></button>
+            <p>Not a member, <span id="orcreateAcc">Register now!</span></p>
+        </div>
+        <div id="signup_form" class="sign_up_form">
+            <h2>Create your account</h2>
+            <input class="spc" type="text" placeholder="Username" id="username" />
+            <input class="spc" type="email" placeholder="Email..." id="signup_email" />
+            <input class="spc" type="password" placeholder="Password..." id="signup_password" />
+            <button class="spc" onclick="signup()">Creat my Account <i class="fa fa-sign-in" aria-hidden="true"></i></button>
+            <p>Have an account! <span id="logmyacc">Login now!</span></p>
+        </div>
+    </div>
+
+    <!-- Credit -->
+    <p class="dvp">Developed By Muhammad Sufyan</p>
+    <!-- logout button -->
+    <div class="logout-btn">
+        <button onclick="logout()">Logout &nbsp<i class="fa fa-sign-out"></i></button>
+    </div>
+
+    <!-- ChattApp -->
+    <div class="chatapp-sec" id="chatapp">
+        <p id="succesMessege"></p>
+        <h1>ChatApp-Js </h1>
+        <span id="user-profile-name"></span>
+        <form action="" onsubmit="return sendMessage()">
+            <ul id="msgbox">
+                <!-- <li class="me">
+                    <p class="profile">Me: </p>
+                    gdfgfg ffsdf sgf sd sd sgsg gfssgsg sgs gsfg g
+                    <i class="fa fa-trash delbtn"></i>
+                </li>
+                <li class="me">
+                    <p class="profile">Me: </p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit modi laudantium sit, neque culpa eum quidem quis exercitationem ab adipisci, eius, pariatur ullam dolorum corrupti necessitatibus. Ex, omnis quae. Quisquam.
+                    <i class="fa fa-trash delbtn"></i>
+                </li>
+                <li class="others">
+                    <p class="profile">Me: </p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit modi laudantium sit, neque culpa eum quidem quis exercitationem ab adipisci, eius, pariatur ullam dolorum corrupti necessitatibus. Ex, omnis quae. Quisquam.
+                    <i class="fa fa-trash delbtn"></i>
+                </li>
+                <li class="others">
+                    <p class="profile">Me: </p>
+                    Velit modi laudantium sit, neque culpa eum quidem quis exercitationem ab adipisci, eius, pariatur ullam dolorum corrupti necessitatibus. Ex, omnis quae. Quisquam.
+                    <i class="fa fa-trash delbtn"></i>
+                </li> -->
+            </ul>
+            <div class="btm-sec">
+                <input id="ourmsg" type="text" placeholder="Type your messege...." autocomplete="off">
+                <button id="senMsg">Send <i class="fa fa-paper-plane" aria-hidden="true"></i></button>
+            </div>
+        </form>
+    </div>
+
+</body>
+<script src="app.js"></script>
+
+</html>
